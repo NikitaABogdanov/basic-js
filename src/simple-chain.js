@@ -10,7 +10,7 @@ const chainMaker = {
     // Remove line below and write your code here
     throw new NotImplementedError('Not implemented');
   },
-  addLink(/* value */) {
+  addLink(/*value*/) {
     // Remove line below and write your code here
     throw new NotImplementedError('Not implemented');
   },

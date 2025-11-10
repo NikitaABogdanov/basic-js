@@ -16,9 +16,39 @@ const { NotImplementedError } = require('../lib');
  *
  */
 
-function repeater(/* str, options */) {
-  // Remove line below and write your code here
-  throw new NotImplementedError('Not implemented');
+function repeater(str, options) {
+  let substring = '';
+  let result ='';
+  if ('separator' in options === false && 'addition' in options === false && 'additionRepeatTimes' in options === false && 'additionSeparator' in options === false) {
+    options.separator = '+';
+    options.addition = '';
+    options.additionRepeatTimes = '';
+    options.additionSeparator = '';
+  } else if ('separator' in options === true && 'addition' in options === false && 'additionRepeatTimes' in options === false && 'additionSeparator' in options === false) {
+    options.addition = '';
+    options.additionRepeatTimes = '';
+    options.additionSeparator = '';
+  } else if ('separator' in options === false && 'addition' in options === true && 'additionRepeatTimes' in options === false && 'additionSeparator' in options === false) {
+    options.separator = '+';
+    options.additionRepeatTimes = '';
+    options.additionSeparator = '';
+  } else if ('separator' in options === false && 'addition' in options === true && 'additionRepeatTimes' in options === true && 'additionSeparator' in options === false) {
+    options.separator = '+';
+    options.additionSeparator = '|';
+  } else if ('separator' in options === false && 'addition' in options === true && 'additionRepeatTimes' in options === true && 'additionSeparator' in options === true) {
+    options.separator = '+';
+  } else if ('separator' in options === true && 'addition' in options === true && 'additionRepeatTimes' in options === true && 'additionSeparator' in options === false) {
+    options.additionSeparator = '|';
+  }
+  for (let i = 1; i < options.additionRepeatTimes; i += 1) {
+    substring = substring + options.addition + options.additionSeparator;
+  }
+  substring = str + substring + options.addition;
+  for (let i = 1; i < options.repeatTimes; i += 1) {
+    result = result + substring + options.separator;
+  }
+  result = result + substring;
+  return result;
 }
 
 module.exports = {
